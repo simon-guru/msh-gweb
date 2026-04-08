@@ -45,7 +45,7 @@ int	builtin_exit(t_shell *sh, char **av, int in_child)
 	}
 	if (av[2])
 	{
-		write(2, "minishell: exit: too many arguments\n", 38);
+		write(2, "minishell: exit: too many arguments\n", 37);
 		return (1);
 	}
 	if (!is_numeric(av[1]))
