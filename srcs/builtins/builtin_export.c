@@ -61,7 +61,7 @@ int	builtin_export(t_shell *sh, char **av)
 			{
 				write(2, "minishell: export: `", 21);
 				write(2, av[i], ft_strlen(av[i]));
-				write(2, "': not a valid identifier\n", 28);
+				write(2, "': not a valid identifier\n", 27);
 				return (1);
 			}
 			env_set(&sh->env, av[i], "");
@@ -74,7 +74,7 @@ int	builtin_export(t_shell *sh, char **av)
 				free(key);
 				write(2, "minishell: export: `", 21);
 				write(2, av[i], ft_strlen(av[i]));
-				write(2, "': not a valid identifier\n", 28);
+				write(2, "': not a valid identifier\n", 27);
 				return (1);
 			}
 			value = ft_strdup(eq + 1);

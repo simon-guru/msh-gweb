@@ -6,12 +6,11 @@
 /*   By: smayunga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:31:14 by smayunga          #+#    #+#             */
-/*   Updated: 2026/03/03 22:31:29 by smayunga         ###   ########.fr       */
+/*   Updated: 2026/03/16 15:00:00 by smayunga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "utils.h"
-
-void	helper_exec_child(t_shell *sh, t_cmd *c, int in, int out);
+#include <stdlib.h>
 
 int	ft_strcmp(const char *a, const char *b)
 {
@@ -44,18 +43,4 @@ char	*ft_strjoin3(const char *a, const char *b, const char *c)
 		out[i++] = c[j++];
 	out[i] = 0;
 	return (out);
-}
-
-void	helper_exec_child(t_shell *sh, t_cmd *c, int in, int out)
-{
-	if (in != 0)
-		dup2(in, 0);
-	if (out != 1)
-		dup2(out, 1);
-	if (apply_redirs(c->redirs, sh))
-		exit(1);
-	if (!c->argv[0])
-		exit(0);
-	if (is_builtin(c->argv[0]))
-		exit(run_builtin(sh, c, 1));
 }
